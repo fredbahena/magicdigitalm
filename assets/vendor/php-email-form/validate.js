@@ -129,7 +129,7 @@
       url: action,
       data: data,
       timeout: 40000
-    }).done( function(msg){
+    }).done( function(msg){      
       if (msg.trim() == 'OK') {
         this_form.find('.loading').slideUp();
         this_form.find('.sent-message').slideDown();
@@ -137,13 +137,13 @@
       } else {
         this_form.find('.loading').slideUp();
         if(!msg) {
-          msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
+          msg = 'El envío del formulario falló, por favor inténtalo más tarde<br>';
         }
         this_form.find('.error-message').slideDown().html(msg);
       }
     }).fail( function(data){
       console.log(data);
-      var error_msg = "Form submission failed!<br>";
+      var error_msg = "¡El envío del formulario falló!<br>";
       if(data.statusText || data.status) {
         error_msg += 'Status:';
         if(data.statusText) {
